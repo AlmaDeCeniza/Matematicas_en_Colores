@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos - Matemáticas en Colores</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            background: white;
+            border: 3px solid #4a90e2;
+            color: #4a90e2;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 #4a90e2;
+        }
+        .filter-btn:hover {
+            background: #4a90e2;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .filter-btn.active {
+            background: #e91e63;
+            border-color: #e91e63;
+            color: white;
+            box-shadow: 0 4px 0 #c2185b;
+        }
+        .product-card.hidden {
+            display: none;
+        }
+        .product-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎨 Matemáticas en Colores 🌈</h1>
+        <p>¡Donde los números se vuelven una aventura!</p>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="container">
+        <section class="hero">
+            <h2 style="color: #e91e63;">🛍️ ¡Nuestro Catálogo Mágico!</h2>
+            <p>Explora todas las herramientas diseñadas para aprender jugando. ¡Haz clic en un producto para conocerlo mejor!</p>
+        </section>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-category="all">Todos los Materiales</button>
+            <button class="filter-btn" data-category="conteo">🔢 Números y Conteo</button>
+            <button class="filter-btn" data-category="geometria">📐 Lógica y Geometría</button>
+            <button class="filter-btn" data-category="medicion">📏 Medición</button>
+        </div>
+
+        <main class="products-grid" id="products-grid">
+            <!-- Categoría: Números y Conteo -->
+            <div class="product-card" data-category="conteo"
+                 data-full-desc="Las Regletas de Cuisenaire son un conjunto de bloques de colores de diferentes longitudes. Son perfectas para que los niños visualicen la composición y descomposición de números, aprendan sumas, restas y hasta conceptos de multiplicación de forma táctil."
+                 data-price="$15.00">
+                <img src="productos/ejemplo.jpg" alt="Regletas">
+                <h3 style="color: #ff6b6b;">Regletas de Cuisenaire</h3>
+                <p>Aprende sumas, restas y fracciones tocando los colores.</p>
+                <span class="price">$15.00</span>
+            </div>
+
+            <div class="product-card" data-category="conteo"
+                 data-full-desc="El Ábaco Colonial es una herramienta clásica y poderosa. Ayuda a los estudiantes a comprender el sistema decimal, el valor posicional y a realizar operaciones básicas de conteo con un soporte físico que facilita la concentración."
+                 data-price="$10.00">
+                <img src="productos/ejemplo2.png" alt="Ábaco">
+                <h3 style="color: #4caf50;">Ábaco Colonial</h3>
+                <p>El compañero perfecto para dominar el sistema decimal.</p>
+                <span class="price">$10.00</span>
+            </div>
+
+            <div class="product-card" data-category="conteo"
+                 data-full-desc="Los Bloques Base 10 permiten a los niños 'ver' la diferencia entre unidades, decenas y centenas. Es la herramienta ideal para eliminar la confusión sobre el valor posicional en los primeros años de escolaridad."
+                 data-price="$14.00">
+                <img src="productos/ejemplo3.jpg" alt="Bloques Base 10">
+                <h3 style="color: #4a90e2;">Bloques Base 10</h3>
+                <p>Entiende el valor posicional de forma visual y rápida.</p>
+                <span class="price">$14.00</span>
+            </div>
+
+            <!-- Categoría: Lógica y Geometría -->
+            <div class="product-card" data-category="geometria"
+                 data-full-desc="Los Bloques Lógicos consisten en piezas que varían en color, forma y tamaño. Ayudan a desarrollar la capacidad de análisis, la clasificación y la resolución de problemas mediante la identificación de atributos."
+                 data-price="$12.00">
+                <img src="https://via.placeholder.com/200" alt="Bloques Lógicos">
+                <h3 style="color: #f9c232;">Bloques Lógicos</h3>
+                <p>Crea patrones y clasifica formas divertidas.</p>
+                <span class="price">$12.00</span>
+            </div>
+
+            <div class="product-card" data-category="geometria"
+                 data-full-desc="El Geoplano Circular permite explorar la geometría plana mediante la creación de figuras con ligas elásticas. Es ideal para enseñar conceptos de simetría, ángulos y polígonos de manera creativa y kinestésica."
+                 data-price="$18.00">
+                <img src="https://via.placeholder.com/200" alt="Geoplano Circular">
+                <h3 style="color: #e91e63;">Geoplano Circular</h3>
+                <p>Estira ligas y crea figuras geométricas increíbles.</p>
+                <span class="price">$18.00</span>
+            </div>
+
+            <div class="product-card" data-category="geometria"
+                 data-full-desc="El Tangram es el rompecabezas la chino por excelencia. A través de 7 piezas geométricas, el niño debe formar figuras específicas, fomentando la visión espacial y la paciencia."
+                 data-price="$8.00">
+                <img src="https://via.placeholder.com/200" alt="Tangram">
+                <h3 style="color: #9c27b0;">Tangram Colorido</h3>
+                <p>El rompecabezas chino para despertar la creatividad.</p>
+                <span class="price">$8.00</span>
+            </div>
+
+            <!-- Categoría: Medición -->
+            <div class="product-card" data-category="medicion"
+                 data-full-desc="Nuestro Reloj Didáctico tiene manecillas móviles y colores contrastantes para que aprender a leer la hora sea un juego. Incluye marcas de minutos y horas muy claras para evitar confusiones."
+                 data-price="$11.00">
+                <img src="https://via.placeholder.com/200" alt="Reloj Didáctico">
+                <h3 style="color: #ff9800;">Reloj Didáctico</h3>
+                <p>Aprende a leer la hora de la manera más sencilla.</p>
+                <span class="price">$11.00</span>
+            </div>
+
+            <div class="product-card" data-category="medicion"
+                 data-full-desc="La Balanza de Platillos es la introducción perfecta al concepto de masa y peso. Permite comparar objetos y entender el equilibrio, fundamental para comprender las igualdades matemáticas."
+                 data-price="$20.00">
+                <img src="https://via.placeholder.com/200" alt="Balanza">
+                <h3 style="color: #3f51b5;">Balanza de Platillos</h3>
+                <p>Descubre el equilibrio y el peso de los objetos.</p>
+                <span class="price">$20.00</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para detalle de producto -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-image">
+                <img id="modal-img" src="" alt="Detalle del producto">
+            </div>
+            <div class="modal-details">
+                <h2 id="modal-title">Título del Producto</h2>
+                <div class="modal-price" id="modal-price">$0.00</div>
+                <p id="modal-desc">Descripción detallada del producto...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Matemáticas en Colores - Hecho con ❤️ para pequeños genios</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica de Filtros
+            const buttons = document.querySelectorAll('.filter-btn');
+            const products = document.querySelectorAll('.product-card');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const category = button.getAttribute('data-category');
+                    products.forEach(product => {
+                        const productCategory = product.getAttribute('data-category');
+                        if (category === 'all' || category === productCategory) {
+                            product.classList.remove('hidden');
+                        } else {
+                            product.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Lógica del Modal de Detalle
+            const modal = document.getElementById('product-modal');
+            const closeModal = document.getElementById('close-modal');
+
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalPrice = document.getElementById('modal-price');
+            const modalDesc = document.getElementById('modal-desc');
+
+            products.forEach(product => {
+                product.addEventListener('click', () => {
+                    const title = product.querySelector('h3').innerText;
+                    const price = product.getAttribute('data-price');
+                    const desc = product.getAttribute('data-full-desc');
+                    const img = product.querySelector('img').src;
+
+                    modalTitle.innerText = title;
+                    modalPrice.innerText = price;
+                    modalDesc.innerText = desc;
+                    modalImg.src = img;
+
+                    modal.style.display = 'flex';
+                });
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
