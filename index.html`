@@ -143,29 +143,16 @@
                 });
             });
 
-            // Navegación del carrusel con loop infinito
+            // Navegación del carrusel
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
 
             nextBtn.addEventListener('click', () => {
-                const currentScroll = carouselItems.scrollLeft;
-                const maxScroll = carouselItems.scrollWidth - carouselItems.clientWidth;
-
-                if (currentScroll >= maxScroll - 10) {
-                    carouselItems.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    const itemWidth = carouselItems.querySelector('.carousel-item').offsetWidth;
-                    carouselItems.scrollBy({ left: itemWidth, behavior: 'smooth' });
-                }
+                carouselItems.scrollBy({ left: 300, behavior: 'smooth' });
             });
 
             prevBtn.addEventListener('click', () => {
-                if (carouselItems.scrollLeft <= 10) {
-                    carouselItems.scrollTo({ left: carouselItems.scrollWidth, behavior: 'smooth' });
-                } else {
-                    const itemWidth = carouselItems.querySelector('.carousel-item').offsetWidth;
-                    carouselItems.scrollBy({ left: -itemWidth, behavior: 'smooth' });
-                }
+                carouselItems.scrollBy({ left: -300, behavior: 'smooth' });
             });
 
             closeModal.addEventListener('click', () => {

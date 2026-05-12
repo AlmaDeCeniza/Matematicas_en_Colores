@@ -211,6 +211,82 @@ nav a:hover {
     color: #e91e63;
     margin: 20px 0;
 }
+
+/* Carousel Styles */
+.modal-carousel {
+    position: relative;
+    width: 100%;
+}
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border-radius: 20px;
+    scrollbar-width: none; /* Firefox */
+}
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.carousel-item {
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+.carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    border: 4px solid #eee;
+}
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.carousel-btn {
+    background: rgba(255,255,255,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    pointer-events: auto;
+    transition: background 0.3s;
+}
+.carousel-btn:hover {
+    background: white;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #128c7e;
+}
+
 @media (max-width: 768px) {
     .modal-content {
         flex-direction: column;
@@ -218,6 +294,13 @@ nav a:hover {
     }
     .modal-image {
         max-width: 100%;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
     }
 }
 

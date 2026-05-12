@@ -137,7 +137,7 @@
             </div>
 
             <div class="product-card" data-category="medicion"
-                 data-full-desc="La Balanza de Platillos es la introducción perfecta al concepto de masa y peso. Permite comparar objetos y entender el equilibrio, fundamental para comprender las igualdades matemáticas."
+                 data-full-desc=" la Balanza de Platillos es la introducción perfecta al concepto de masa y peso. Permite comparar objetos y entender el equilibrio, fundamental para comprender las igualdades matemáticas."
                  data-price="$20.00">
                 <img src="productos/ejemplo2.png" alt="Balanza">
                 <h3 style="color: #3f51b5;">Balanza de Platillos</h3>
@@ -152,15 +152,28 @@
         <div class="modal-content">
             <button class="modal-close" id="close-modal">&times;</button>
             <div class="modal-image">
-                <img id="modal-img" src="" alt="Detalle del producto">
+                <div class="modal-carousel">
+                    <div class="carousel-container" id="carousel-items">
+                        <!-- Items will be added by JS -->
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn" id="prev-btn">❮</button>
+                        <button class="carousel-btn" id="next-btn">❯</button>
+                    </div>
+                </div>
             </div>
             <div class="modal-details">
                 <h2 id="modal-title">Título del Producto</h2>
                 <div class="modal-price" id="modal-price">$0.00</div>
                 <p id="modal-desc">Descripción detallada del producto...</p>
+                <a href="https://wa.me/123456789" target="_blank" class="btn-buy" style="display: inline-block; text-align: center; text-decoration: none;">Consultar por WhatsApp 💬</a>
             </div>
         </div>
     </div>
+
+    <a href="https://wa.me/123456789" class="whatsapp-float" target="_blank" title="¡Chatea con nosotros!">
+        <span>💬</span>
+    </a>
 
     <footer>
         <p>&copy; 2026 Matemáticas en Colores - Hecho con ❤️ para pequeños genios</p>
@@ -191,26 +204,59 @@
             // Lógica del Modal de Detalle
             const modal = document.getElementById('product-modal');
             const closeModal = document.getElementById('close-modal');
-
-            const modalImg = document.getElementById('modal-img');
+            const carouselItems = document.getElementById('carousel-items');
             const modalTitle = document.getElementById('modal-title');
             const modalPrice = document.getElementById('modal-price');
             const modalDesc = document.getElementById('modal-desc');
 
             products.forEach(product => {
+                product.style.cursor = 'pointer';
                 product.addEventListener('click', () => {
                     const title = product.querySelector('h3').innerText;
                     const price = product.getAttribute('data-price');
                     const desc = product.getAttribute('data-full-desc');
-                    const img = product.querySelector('img').src;
+
+                    // Simular un carrusel con las 3 imágenes de ejemplo
+                    const imgs = ["productos/ejemplo.jpg", "productos/ejemplo2.png", "productos/ejemplo3.jpg"];
+                    carouselItems.innerHTML = '';
+                    imgs.forEach(src => {
+                        const div = document.createElement('div');
+                        div.className = 'carousel-item';
+                        div.innerHTML = `<img src="${src}" alt="Imagen del producto">`;
+                        carouselItems.appendChild(div);
+                    });
 
                     modalTitle.innerText = title;
                     modalPrice.innerText = price;
                     modalDesc.innerText = desc;
-                    modalImg.src = img;
 
                     modal.style.display = 'flex';
                 });
+            });
+
+            // Navegación del carrusel con loop infinito corregido
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+
+            nextBtn.addEventListener('click', () => {
+                const currentScroll = carouselItems.scrollLeft;
+                const maxScroll = carouselItems.scrollWidth - carouselItems.clientWidth;
+
+                if (currentScroll >= maxScroll - 10) {
+                    carouselItems.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    const itemWidth = carouselItems.querySelector('.carousel-item').offsetWidth;
+                    carouselItems.scrollBy({ left: itemWidth, behavior: 'smooth' });
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (carouselItems.scrollLeft <= 10) {
+                    carouselItems.scrollTo({ left: carouselItems.scrollWidth, behavior: 'smooth' });
+                } else {
+                    const itemWidth = carouselItems.querySelector('.carousel-item').offsetWidth;
+                    carouselItems.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+                }
             });
 
             closeModal.addEventListener('click', () => {
